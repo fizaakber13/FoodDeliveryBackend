@@ -1,0 +1,463 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\migrations\\20250609180813_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:migrations\\20250609180813_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\couponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\menuitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\menuitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\restaurantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\restaurantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\restaurantcouponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\restaurantcouponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\coupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\restaurantcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\restaurantcoupon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250609171043_DecimalPrecisionFix2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250609171043_DecimalPrecisionFix2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250608145756_UpdateNavigationProps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20250608145756_UpdateNavigationProps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|c:\\users\\fizaa\\desktop\\backend\\fooddeliverybackend\\fooddeliverybackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D84F4B56-BE5A-43FF-B9B1-F825E001806F}|FoodDeliveryBackend.csproj|solutionrelative:fooddeliverybackend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswBIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:44:11.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CouponController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\CouponController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CouponController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\CouponController.cs",
+              "RelativeToolTip": "Controllers\\CouponController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:41:51.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MenuItemController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\MenuItemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MenuItemController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\MenuItemController.cs",
+              "RelativeToolTip": "Controllers\\MenuItemController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwD0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:20:17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CartItemController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\CartItemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CartItemController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\CartItemController.cs",
+              "RelativeToolTip": "Controllers\\CartItemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:50:37.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddressController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\AddressController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AddressController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\AddressController.cs",
+              "RelativeToolTip": "Controllers\\AddressController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:42:14.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250609180813_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250609180813_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250609180813_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250609180813_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20250609180813_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T18:08:13.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderItemController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\OrderItemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderItemController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\OrderItemController.cs",
+              "RelativeToolTip": "Controllers\\OrderItemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:48:55.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RestaurantController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\RestaurantController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RestaurantController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\RestaurantController.cs",
+              "RelativeToolTip": "Controllers\\RestaurantController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:09:45.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RestaurantCouponController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\RestaurantCouponController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RestaurantCouponController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\RestaurantCouponController.cs",
+              "RelativeToolTip": "Controllers\\RestaurantCouponController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T18:24:26.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\TestController.cs",
+              "RelativeToolTip": "Controllers\\TestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T19:22:18.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAcwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T14:23:06.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwFQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T10:07:13.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-08T09:54:05.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T09:54:29.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Address.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Address.cs",
+              "RelativeDocumentMoniker": "Models\\Address.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Address.cs",
+              "RelativeToolTip": "Models\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T15:43:50.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\CartItem.cs",
+              "RelativeToolTip": "Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:32:18.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Coupon.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Coupon.cs",
+              "RelativeDocumentMoniker": "Models\\Coupon.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Coupon.cs",
+              "RelativeToolTip": "Models\\Coupon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:32:36.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MenuItem.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\MenuItem.cs",
+              "RelativeDocumentMoniker": "Models\\MenuItem.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\MenuItem.cs",
+              "RelativeToolTip": "Models\\MenuItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T15:43:13.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "Models\\Order.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Order.cs",
+              "RelativeToolTip": "Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:24:56.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\OrderItem.cs",
+              "RelativeToolTip": "Models\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:25:45.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Restaurant.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Restaurant.cs",
+              "RelativeDocumentMoniker": "Models\\Restaurant.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\Restaurant.cs",
+              "RelativeToolTip": "Models\\Restaurant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:56:11.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "RestaurantCoupon.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\RestaurantCoupon.cs",
+              "RelativeDocumentMoniker": "Models\\RestaurantCoupon.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\RestaurantCoupon.cs",
+              "RelativeToolTip": "Models\\RestaurantCoupon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T15:05:20.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:55:55.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20250609171043_DecimalPrecisionFix2.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250609171043_DecimalPrecisionFix2.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250609171043_DecimalPrecisionFix2.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250609171043_DecimalPrecisionFix2.cs",
+              "RelativeToolTip": "Migrations\\20250609171043_DecimalPrecisionFix2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-09T17:10:43.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20250608145756_UpdateNavigationProps.cs",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250608145756_UpdateNavigationProps.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250608145756_UpdateNavigationProps.cs",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\Migrations\\20250608145756_UpdateNavigationProps.cs",
+              "RelativeToolTip": "Migrations\\20250608145756_UpdateNavigationProps.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T14:57:56.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "FoodDeliveryBackend.csproj",
+              "DocumentMoniker": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\FoodDeliveryBackend.csproj",
+              "RelativeDocumentMoniker": "FoodDeliveryBackend.csproj",
+              "ToolTip": "C:\\Users\\fizaa\\Desktop\\Backend\\FoodDeliveryBackend\\FoodDeliveryBackend.csproj",
+              "RelativeToolTip": "FoodDeliveryBackend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-07T10:15:46.145Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
