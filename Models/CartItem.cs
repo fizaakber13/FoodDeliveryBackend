@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FoodDeliveryBackend.Models
 {
@@ -12,8 +13,13 @@ namespace FoodDeliveryBackend.Models
         public int Quantity { get; set; }
 
         
-        public User User { get; set; } = null!;
-        public Restaurant Restaurant { get; set; } = null!;
-        public MenuItem MenuItem { get; set; } = null!;
+        [JsonIgnore]
+        public User? User { get; set; }
+
+        [JsonIgnore]
+        public Restaurant? Restaurant { get; set; }
+
+        [JsonIgnore]
+        public MenuItem? MenuItem { get; set; }
     }
 }

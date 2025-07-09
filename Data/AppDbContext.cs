@@ -6,6 +6,7 @@ namespace FoodDeliveryBackend.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public DbSet<RestaurantRegistrationRequest> RestaurantRegistrationRequests { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
@@ -17,49 +18,56 @@ namespace FoodDeliveryBackend.Data
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<RestaurantCoupon> RestaurantCoupons { get; set; }
 
+        public DbSet<OtpEntry> OtpRequests { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // User - Address
+            // unique constraint for restaurant email
+            modelBuilder.Entity<Restaurant>()
+                .HasIndex(r => r.Email)
+                .IsUnique();
+
+            // user - address
             modelBuilder.Entity<Address>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Addresses)
                 .HasForeignKey(a => a.UserId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // Restaurant - MenuItem
+            // restaurant - menuitem
             modelBuilder.Entity<MenuItem>()
                 .HasOne(m => m.Restaurant)
                 .WithMany(r => r.MenuItems)
                 .HasForeignKey(m => m.RestaurantId)
-                .OnDelete(DeleteBehavior.Cascade); 
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // User - CartItem
+            // user - cartitem
             modelBuilder.Entity<CartItem>()
                 .HasOne(c => c.User)
                 .WithMany(u => u.CartItems)
                 .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Restaurant - CartItem
+            // restaurant - cartitem
             modelBuilder.Entity<CartItem>()
                 .HasOne(c => c.Restaurant)
                 .WithMany()
                 .HasForeignKey(c => c.RestaurantId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // MenuItem - CartItem
+            // menuitem - cartitem
             modelBuilder.Entity<CartItem>()
                 .HasOne(c => c.MenuItem)
                 .WithMany()
                 .HasForeignKey(c => c.MenuItemId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // User - Order
+            // user - Order
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)
                 .HasForeignKey(o => o.UserId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Restaurant - Order
             modelBuilder.Entity<Order>()
@@ -68,21 +76,25 @@ namespace FoodDeliveryBackend.Data
                 .HasForeignKey(o => o.RestaurantId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Order - OrderItem
+            // Order - orderitem
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
                 .HasForeignKey(oi => oi.OrderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // MenuItem - OrderItem
+            // menuitem - Orderitem
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.MenuItem)
                 .WithMany()
                 .HasForeignKey(oi => oi.MenuItemId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // RestaurantCoupon
+            modelBuilder.Entity<OrderItem>()
+                .Property(o => o.Price)
+                .HasColumnType("decimal(10, 2)");
+
+            // Restaurantcoupon
             modelBuilder.Entity<RestaurantCoupon>()
                 .HasOne(rc => rc.Restaurant)
                 .WithMany(r => r.RestaurantCoupons)
@@ -94,8 +106,6 @@ namespace FoodDeliveryBackend.Data
                 .WithMany(c => c.RestaurantCoupons)
                 .HasForeignKey(rc => rc.CouponId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            
 
             modelBuilder.Entity<Coupon>()
                 .Property(c => c.DiscountAmount)
@@ -109,7 +119,9 @@ namespace FoodDeliveryBackend.Data
                 .Property(o => o.TotalAmount)
                 .HasPrecision(18, 2);
 
-           
+            modelBuilder.Entity<RestaurantRegistrationRequest>()
+                .Property(r => r.RestaurantName)
+                .IsRequired();
 
             base.OnModelCreating(modelBuilder);
         }

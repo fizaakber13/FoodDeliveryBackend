@@ -12,9 +12,14 @@ namespace FoodDeliveryBackend.Models
         public decimal TotalAmount { get; set; }
         public string Status { get; set; } = "";
 
-       
-        public User User { get; set; } = null!;
-        public Restaurant Restaurant { get; set; } = null!;
+
+        public string Address { get; set; } = "";
+        public string PaymentMethod { get; set; } = "";
+
+        public User? User { get; set; }
+        public Restaurant? Restaurant { get; set; }
+
         public List<OrderItem> OrderItems { get; set; } = new();
     }
+
 }

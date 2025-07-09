@@ -164,4 +164,10 @@ C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\refint\FoodD
 C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\FoodDeliveryBackend.pdb
 C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\FoodDeliveryBackend.genruntimeconfig.cache
 C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\ref\FoodDeliveryBackend.dll
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\FoodDeliveryBackend.sourcelink.json
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\bin\Debug\net8.0\MailKit.dll
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\bin\Debug\net8.0\MimeKit.dll
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\fizaa\Desktop\Backend\FoodDeliveryBackend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

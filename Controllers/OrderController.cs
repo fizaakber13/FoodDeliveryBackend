@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using FoodDeliveryBackend.Data;
+using FoodDeliveryBackend.DTOs;
 using FoodDeliveryBackend.Models;
-using FoodDeliveryBackend.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
+
 
 namespace FoodDeliveryBackend.Controllers
 {
@@ -16,51 +19,139 @@ namespace FoodDeliveryBackend.Controllers
             _context = context;
         }
 
-        // GET
+       
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.Include(o => o.OrderItems).ToListAsync();
+            return await _context.Orders
+                .Include(o => o.Restaurant)                          
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.MenuItem)                 
+                .ToListAsync();
         }
 
-        
+       
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            var order = await _context.Orders.Include(o => o.OrderItems)
-                                             .FirstOrDefaultAsync(o => o.Id == id);
+            var order = await _context.Orders
+                .Include(o => o.Restaurant)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.MenuItem)
+                .FirstOrDefaultAsync(o => o.Id == id);
+
             if (order == null)
             {
                 return NotFound();
             }
+
             return order;
         }
 
-        // POST
-        [HttpPost]
-        public async Task<ActionResult<Order>> AddOrder(Order order)
+        
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetOrdersByUserId(int userId)
         {
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            var orders = await _context.Orders
+                .Where(o => o.UserId == userId)
+                .Include(o => o.Restaurant)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.MenuItem) 
+                .OrderByDescending(o => o.OrderDate)
+                .ToListAsync();
 
-            return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            return Ok(orders);
+        }
+        
+        [HttpGet("user/{userId}/search")]
+        public async Task<IActionResult> SearchOrdersByRestaurant(int userId, [FromQuery] string restaurantName = "")
+        {
+            var orders = await _context.Orders
+                .Where(o => o.UserId == userId &&
+                       (string.IsNullOrEmpty(restaurantName) ||
+                        o.Restaurant!.Name.Contains(restaurantName)))
+                .Include(o => o.Restaurant)
+                .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.MenuItem)
+                .OrderByDescending(o => o.OrderDate) 
+                .ToListAsync();
+
+            return Ok(orders);
         }
 
-        // PUT
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateOrder(int id, Order order)
+
+        [HttpPost]
+        public async Task<ActionResult<Order>> AddOrder([FromBody] OrderDto orderDto)
         {
-            if (id != order.Id)
+            try
             {
-                return BadRequest();
+                var order = new Order
+                {
+                    UserId = orderDto.UserId,
+                    RestaurantId = orderDto.RestaurantId,
+                    OrderDate = orderDto.OrderDate,
+                    TotalAmount = orderDto.TotalAmount,
+                    Status = orderDto.Status,
+                    Address = orderDto.Address,
+                    PaymentMethod = orderDto.PaymentMethod
+                };
+
+                
+                foreach (var itemDto in orderDto.OrderItems)
+                {
+                    order.OrderItems.Add(new OrderItem
+                    {
+                        MenuItemId = itemDto.MenuItemId,
+                        Quantity = itemDto.Quantity,
+                        Price = itemDto.Price,
+                        Order = order 
+                    });
+                }
+
+                _context.Orders.Add(order);
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine("❌ DB Update Exception: " + ex.Message);
+                if (ex.InnerException != null)
+                    Console.WriteLine("👉 Inner Exception: " + ex.InnerException.Message);
+                return StatusCode(500, "DB error: " + ex.InnerException?.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ General Error: " + ex.Message);
+                return StatusCode(500, "Internal Server Error: " + ex.Message);
+            }
+        }
+
+
+
+       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] JsonElement body)
+        {
+            var existingOrder = await _context.Orders.FindAsync(id);
+            if (existingOrder == null)
+            {
+                return NotFound();
             }
 
-            _context.Entry(order).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            if (body.TryGetProperty("status", out var statusElement))
+            {
+                existingOrder.Status = statusElement.GetString();
+                await _context.SaveChangesAsync();
+                return NoContent();
+            }
+
+            return BadRequest("Status field is required.");
         }
 
-        // DELETE
+
+
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
