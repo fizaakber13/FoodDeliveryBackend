@@ -87,21 +87,22 @@ namespace FoodDeliveryBackend.Controllers
                     return NotFound(new { message = "Account not found. Please sign up first." });
             }
 
-            
+
             return Ok(new
             {
                 message = "OTP verified successfully.",
                 isAdmin = user?.IsAdmin ?? false,
-                id = user != null ? user.Id : restaurant.Id,
-                name = user?.Name ?? restaurant.Name,
+                id = user?.Id ?? restaurant?.Id ?? 0,  // Avoid null exception
+                name = user?.Name ?? restaurant?.Name ?? string.Empty,  // Avoid null exception
                 isRestaurant = restaurant != null
             });
 
 
 
+
         }
 
-        
+
         [HttpPost("signup")]
         public async Task<IActionResult> SignUp([FromBody] User user)
         {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FoodDeliveryBackend.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialClean : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,18 +31,53 @@ namespace FoodDeliveryBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OtpRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Otp = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OtpRequests", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Restaurant",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Cuisine = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Rating = table.Column<double>(type: "float", nullable: false),
+                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Restaurant", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RestaurantRegistrationRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RestaurantName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    RequestedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RestaurantRegistrationRequests", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,7 +87,8 @@ namespace FoodDeliveryBackend.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmailOrPhone = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    EmailOrPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsAdmin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,6 +105,7 @@ namespace FoodDeliveryBackend.Migrations
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
+                    Rating = table.Column<double>(type: "float", nullable: false),
                     RestaurantId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -83,7 +120,7 @@ namespace FoodDeliveryBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RestuarntCoupon",
+                name: "RestaurantCoupon",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -93,15 +130,15 @@ namespace FoodDeliveryBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RestuarntCoupon", x => x.Id);
+                    table.PrimaryKey("PK_RestaurantCoupon", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RestuarntCoupon_Coupon_CouponId",
+                        name: "FK_RestaurantCoupon_Coupon_CouponId",
                         column: x => x.CouponId,
                         principalTable: "Coupon",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_RestuarntCoupon_Restaurant_RestaurantId",
+                        name: "FK_RestaurantCoupon_Restaurant_RestaurantId",
                         column: x => x.RestaurantId,
                         principalTable: "Restaurant",
                         principalColumn: "Id",
@@ -116,6 +153,7 @@ namespace FoodDeliveryBackend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Line = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsDefault = table.Column<bool>(type: "bit", nullable: false),
+                    Label = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -139,7 +177,9 @@ namespace FoodDeliveryBackend.Migrations
                     RestaurantId = table.Column<int>(type: "int", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -200,7 +240,8 @@ namespace FoodDeliveryBackend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     MenuItemId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false)
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -265,13 +306,19 @@ namespace FoodDeliveryBackend.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RestuarntCoupon_CouponId",
-                table: "RestuarntCoupon",
+                name: "IX_Restaurant_Email",
+                table: "Restaurant",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RestaurantCoupon_CouponId",
+                table: "RestaurantCoupon",
                 column: "CouponId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RestuarntCoupon_RestaurantId",
-                table: "RestuarntCoupon",
+                name: "IX_RestaurantCoupon_RestaurantId",
+                table: "RestaurantCoupon",
                 column: "RestaurantId");
         }
 
@@ -288,7 +335,13 @@ namespace FoodDeliveryBackend.Migrations
                 name: "OrderItem");
 
             migrationBuilder.DropTable(
-                name: "RestuarntCoupon");
+                name: "OtpRequests");
+
+            migrationBuilder.DropTable(
+                name: "RestaurantCoupon");
+
+            migrationBuilder.DropTable(
+                name: "RestaurantRegistrationRequests");
 
             migrationBuilder.DropTable(
                 name: "MenuItem");
