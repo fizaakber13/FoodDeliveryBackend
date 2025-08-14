@@ -8,5 +8,5 @@ public class OtpVerification
     [Required]
     public string Otp { get; set; } = "";
 
-    public string Mode { get; set; } = "login";
+    
 }

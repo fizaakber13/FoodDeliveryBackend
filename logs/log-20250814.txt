@@ -1,0 +1,18 @@
+2025-08-14 11:41:16.038 +05:30 [INF] HTTP GET /swagger responded 301 in 5.6586 ms
+2025-08-14 11:41:16.170 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 59.4228 ms
+2025-08-14 11:41:16.214 +05:30 [INF] HTTP GET /swagger/index.css responded 200 in 33.9474 ms
+2025-08-14 11:41:16.251 +05:30 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 70.9130 ms
+2025-08-14 11:41:16.251 +05:30 [INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 22.4998 ms
+2025-08-14 11:41:16.264 +05:30 [INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 83.8374 ms
+2025-08-14 11:41:16.282 +05:30 [INF] HTTP GET /swagger/index.js responded 200 in 1.3921 ms
+2025-08-14 11:41:16.532 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 40.5196 ms
+2025-08-14 11:41:17.010 +05:30 [INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 0.7487 ms
+2025-08-14 11:42:19.258 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/v1/Address  {
+  "line": "123",
+  "isDefault": true,
+  "label": "home",
+  "userId": 10
+} Responded with [401] in 252ms
+2025-08-14 11:42:19.260 +05:30 [INF] HTTP POST /api/v1/Address responded 401 in 259.7300 ms
+2025-08-14 11:44:46.940 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 0.7135 ms
+2025-08-14 11:44:47.232 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 26.7493 ms

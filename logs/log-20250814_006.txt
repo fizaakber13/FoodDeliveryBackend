@@ -1,0 +1,29 @@
+2025-08-14 12:17:03.672 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 60.8274 ms
+2025-08-14 12:17:03.796 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 36.4640 ms
+2025-08-14 12:19:47.761 +05:30 [INF] HTTP GET /swagger responded 301 in 5.2521 ms
+2025-08-14 12:19:48.219 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 78.1531 ms
+2025-08-14 12:21:00.679 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 65.4779 ms
+2025-08-14 12:22:16.755 +05:30 [ERR] An unhandled exception occurred in an action method.
+System.TimeoutException: Operation timed out after 120000 milliseconds
+ ---> System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at MailKit.Net.NetworkStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MailKit.Net.NetworkStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpStream.ReadAheadAsync(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpStream.ReadResponseAsync(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.PostConnectAsync(Stream stream, String host, Int32 port, SecureSocketOptions options, Boolean starttls, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at FoodDeliveryBackend.Services.Implementations.UserService.SendOtpAsync(String email) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\UserService.cs:line 108
+   at FoodDeliveryBackend.Controllers.AuthController.SendOtp(OtpSendRequest request) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-14 12:22:17.145 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/Auth/send-otp ?api-version=1.0 {
+  "email": "fizaakber13@gmail.com"
+} Responded with [500] in 122582ms
+2025-08-14 12:22:17.150 +05:30 [ERR] HTTP POST /api/Auth/send-otp responded 500 in 122591.2403 ms
+2025-08-14 12:22:37.170 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 27.2867 ms

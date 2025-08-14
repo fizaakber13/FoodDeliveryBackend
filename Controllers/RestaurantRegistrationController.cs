@@ -1,83 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FoodDeliveryBackend.Models;
-using FoodDeliveryBackend.Data;
-using Microsoft.EntityFrameworkCore;
-using MimeKit;
-using MailKit.Net.Smtp;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Linq;
 using System;
+using FoodDeliveryBackend.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodDeliveryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RestaurantRegistrationController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRestaurantRegistrationRequestService _service;
 
-        public RestaurantRegistrationController(AppDbContext context)
+        public RestaurantRegistrationController(IRestaurantRegistrationRequestService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpPost("request")]
-        public async Task<IActionResult> RequestRegistration(RestaurantRegistrationRequest request)
+        public async Task<IActionResult> RequestRegistration([FromBody] CreateRestaurantRegistrationRequest requestDto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            
 
-            if (await _context.RestaurantRegistrationRequests.AnyAsync(r => r.Email == request.Email))
-                return Conflict("A request with this email has already been submitted.");
-
-            _context.RestaurantRegistrationRequests.Add(request);
-            await _context.SaveChangesAsync();
-
-            await NotifyAdminsOfRequest(request);
-
-            return Ok(new { message = "Request submitted successfully. Admin will review it soon." });
+            try
+            {
+                var newRequest = await _service.CreateRestaurantRegistrationRequestAsync(requestDto);
+                return Ok(new { message = "Request submitted successfully. Admin will review it soon." });
+            }
+            catch (Exception ex)
+            {
+                return Conflict(ex.Message); // Assuming service throws specific exception for conflict
+            }
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RestaurantRegistrationRequest>>> GetAllRequests()
+        public async Task<ActionResult<IEnumerable<RestaurantRegistrationRequestResponse>>> GetAllRequests()
         {
-            return await _context.RestaurantRegistrationRequests
-                                 .OrderByDescending(r => r.RequestedAt)
-                                 .ToListAsync();
+            return Ok(await _service.GetAllRestaurantRegistrationRequestsAsync());
         }
 
         
-        private async Task NotifyAdminsOfRequest(RestaurantRegistrationRequest request)
-        {
-            var adminEmails = await _context.Users
-                .Where(u => u.IsAdmin)
-                .Select(u => u.EmailOrPhone)
-                .ToListAsync();
-
-            var messageText = $"New restaurant registration request:\n\n" +
-                              $"Restaurant Name: {request.RestaurantName}\n" +
-                              $"Email: {request.Email}\n" +
-                              $"Contact: {request.Contact}\n" +
-                              $"Location: {request.Location}\n" +
-                              $"Time: {request.RequestedAt}\n";
-
-            foreach (var adminEmail in adminEmails)
-            {
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("ZUPPR Admin:", "fizaakber13@gmail.com"));
-                message.To.Add(MailboxAddress.Parse(adminEmail));
-                message.Subject = "🔔 New Restaurant Registration Request";
-                message.Body = new TextPart("plain") { Text = messageText };
-
-                using (var client = new SmtpClient())
-                {
-                    await client.ConnectAsync("smtp.gmail.com", 587, false);
-                    await client.AuthenticateAsync("fizaakber13@gmail.com", "yudzqupldfvbakkp"); // Your Gmail App Password
-                    await client.SendAsync(message);
-                    await client.DisconnectAsync(true);
-                }
-            }
-        }
+        
     }
 }

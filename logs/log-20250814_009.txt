@@ -1,0 +1,126 @@
+2025-08-14 12:28:56.953 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 64.8073 ms
+2025-08-14 12:28:57.168 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 77.2229 ms
+2025-08-14 12:29:07.984 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/v1/Address/10   Responded with [404] in 1679ms
+2025-08-14 12:29:07.986 +05:30 [INF] HTTP GET /api/v1/Address/10 responded 404 in 1685.9998 ms
+2025-08-14 12:30:46.339 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/v1/Address/10   Responded with [404] in 61631ms
+2025-08-14 12:30:46.341 +05:30 [INF] HTTP GET /api/v1/Address/10 responded 404 in 61634.2153 ms
+2025-08-14 12:33:18.787 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/v1/Address/10   Responded with [404] in 149617ms
+2025-08-14 12:33:18.825 +05:30 [INF] HTTP GET /api/v1/Address/10 responded 404 in 149655.8664 ms
+2025-08-14 12:33:18.842 +05:30 [INF] HTTP GET /swagger/index.html responded 200 in 0.4690 ms
+2025-08-14 12:33:19.193 +05:30 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 25.0589 ms
+2025-08-14 12:33:35.545 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/v1/Address/14   Responded with [200] in 8283ms
+2025-08-14 12:33:35.546 +05:30 [INF] HTTP GET /api/v1/Address/14 responded 200 in 8285.4801 ms
+2025-08-14 21:36:21.996 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 5254ms
+2025-08-14 21:36:22.057 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 5321.1369 ms
+2025-08-14 21:36:34.864 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"658430"} Responded with [200] in 146ms
+2025-08-14 21:36:34.868 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 150.6770 ms
+2025-08-14 21:36:35.183 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [200] in 233ms
+2025-08-14 21:36:35.187 +05:30 [INF] HTTP GET /api/user/dashboard responded 200 in 237.6392 ms
+2025-08-14 21:36:36.980 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 175ms
+2025-08-14 21:36:36.983 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 178.4551 ms
+2025-08-14 21:36:38.788 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 138ms
+2025-08-14 21:36:38.790 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 140.9604 ms
+2025-08-14 21:36:39.855 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 47ms
+2025-08-14 21:36:39.857 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 49.9656 ms
+2025-08-14 21:36:39.876 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10   Responded with [200] in 68ms
+2025-08-14 21:36:39.878 +05:30 [INF] HTTP GET /api/User/10 responded 200 in 70.6725 ms
+2025-08-14 21:36:42.343 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-14 21:36:42.346 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-14 21:36:42.373 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 76ms
+2025-08-14 21:36:42.376 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 79.4478 ms
+2025-08-14 21:39:05.987 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 12ms
+2025-08-14 21:39:05.989 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 14.4855 ms
+2025-08-14 21:39:09.745 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 15ms
+2025-08-14 21:39:09.748 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 17.8528 ms
+2025-08-14 21:39:55.284 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3143ms
+2025-08-14 21:39:55.287 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3146.2943 ms
+2025-08-14 21:40:14.837 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"116065"} Responded with [200] in 20ms
+2025-08-14 21:40:14.840 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 23.9925 ms
+2025-08-14 21:40:14.859 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [200] in 2ms
+2025-08-14 21:40:14.865 +05:30 [INF] HTTP GET /api/user/dashboard responded 200 in 8.9587 ms
+2025-08-14 21:40:18.206 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 10ms
+2025-08-14 21:40:18.209 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 13.4424 ms
+2025-08-14 21:40:20.845 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant/3   Responded with [200] in 28ms
+2025-08-14 21:40:20.847 +05:30 [INF] HTTP GET /api/Restaurant/3 responded 200 in 30.7069 ms
+2025-08-14 21:40:20.848 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/3   Responded with [200] in 31ms
+2025-08-14 21:40:20.852 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/3 responded 200 in 35.1991 ms
+2025-08-14 21:40:20.879 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/user/10   Responded with [200] in 20ms
+2025-08-14 21:40:20.881 +05:30 [INF] HTTP GET /api/CartItem/user/10 responded 200 in 22.4284 ms
+2025-08-14 21:40:24.047 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 10ms
+2025-08-14 21:40:24.050 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 12.4803 ms
+2025-08-14 21:40:25.638 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant/4   Responded with [200] in 9ms
+2025-08-14 21:40:25.638 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/4   Responded with [200] in 9ms
+2025-08-14 21:40:25.641 +05:30 [INF] HTTP GET /api/Restaurant/4 responded 200 in 12.4603 ms
+2025-08-14 21:40:25.642 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/4 responded 200 in 13.4452 ms
+2025-08-14 21:40:25.656 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/user/10   Responded with [200] in 5ms
+2025-08-14 21:40:25.658 +05:30 [INF] HTTP GET /api/CartItem/user/10 responded 200 in 7.8422 ms
+2025-08-14 21:40:28.456 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/CartItem/add-or-update  {"userId":10,"menuItemId":6,"quantity":1} Responded with [200] in 47ms
+2025-08-14 21:40:28.458 +05:30 [INF] HTTP POST /api/CartItem/add-or-update responded 200 in 50.4201 ms
+2025-08-14 21:40:29.747 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/CartItem/add-or-update  {"userId":10,"menuItemId":5,"quantity":1} Responded with [200] in 36ms
+2025-08-14 21:40:29.750 +05:30 [INF] HTTP POST /api/CartItem/add-or-update responded 200 in 38.4237 ms
+2025-08-14 21:40:30.808 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/CartItem/add-or-update  {"userId":10,"menuItemId":5,"quantity":1} Responded with [200] in 20ms
+2025-08-14 21:40:30.811 +05:30 [INF] HTTP POST /api/CartItem/add-or-update responded 200 in 23.2328 ms
+2025-08-14 21:40:32.120 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 11ms
+2025-08-14 21:40:32.124 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 14.4139 ms
+2025-08-14 21:40:38.751 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 11ms
+2025-08-14 21:40:38.754 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 14.5012 ms
+2025-08-14 21:40:40.679 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 11ms
+2025-08-14 21:40:40.679 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10   Responded with [200] in 11ms
+2025-08-14 21:40:40.682 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 14.7419 ms
+2025-08-14 21:40:40.682 +05:30 [INF] HTTP GET /api/User/10 responded 200 in 15.4893 ms
+2025-08-14 21:44:35.332 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 18ms
+2025-08-14 21:44:35.334 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 20.9660 ms
+2025-08-14 21:44:46.969 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant/3   Responded with [200] in 24ms
+2025-08-14 21:44:46.969 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/3   Responded with [200] in 25ms
+2025-08-14 21:44:46.973 +05:30 [INF] HTTP GET /api/Restaurant/3 responded 200 in 27.9617 ms
+2025-08-14 21:44:46.974 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/3 responded 200 in 30.0429 ms
+2025-08-14 21:44:46.990 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/user/10   Responded with [200] in 6ms
+2025-08-14 21:44:46.991 +05:30 [INF] HTTP GET /api/CartItem/user/10 responded 200 in 8.6133 ms
+2025-08-14 21:44:48.285 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/CartItem/add-or-update  {"userId":10,"menuItemId":3,"quantity":1} Responded with [200] in 31ms
+2025-08-14 21:44:48.287 +05:30 [INF] HTTP POST /api/CartItem/add-or-update responded 200 in 33.9763 ms
+2025-08-14 21:44:50.084 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/CartItem/add-or-update  {"userId":10,"menuItemId":3,"quantity":1} Responded with [200] in 27ms
+2025-08-14 21:44:50.086 +05:30 [INF] HTTP POST /api/CartItem/add-or-update responded 200 in 30.1175 ms
+2025-08-14 21:44:51.179 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 15ms
+2025-08-14 21:44:51.182 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 18.2964 ms
+2025-08-14 21:44:54.386 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 17ms
+2025-08-14 21:44:54.388 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 19.7271 ms
+2025-08-14 21:44:54.389 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 23ms
+2025-08-14 21:44:54.393 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 27.6656 ms
+2025-08-14 21:44:54.416 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon/restaurant/4   Responded with [200] in 45ms
+2025-08-14 21:44:54.418 +05:30 [INF] HTTP GET /api/Coupon/restaurant/4 responded 200 in 48.0231 ms
+2025-08-14 21:44:56.931 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 25ms
+2025-08-14 21:44:56.933 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 28.0787 ms
+2025-08-14 21:44:58.265 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10   Responded with [200] in 8ms
+2025-08-14 21:44:58.265 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 9ms
+2025-08-14 21:44:58.269 +05:30 [INF] HTTP GET /api/User/10 responded 200 in 12.9021 ms
+2025-08-14 21:44:58.270 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 14.6701 ms
+2025-08-14 21:45:51.364 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3156ms
+2025-08-14 21:45:51.367 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3159.3551 ms
+2025-08-14 21:46:17.735 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"146641"} Responded with [200] in 22ms
+2025-08-14 21:46:17.738 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 25.4848 ms
+2025-08-14 21:46:17.759 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [200] in 2ms
+2025-08-14 21:46:17.762 +05:30 [INF] HTTP GET /api/user/dashboard responded 200 in 5.5255 ms
+2025-08-14 21:46:21.277 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 10ms
+2025-08-14 21:46:21.280 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 13.8162 ms
+2025-08-14 21:46:22.838 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant/3   Responded with [200] in 11ms
+2025-08-14 21:46:22.839 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/3   Responded with [200] in 16ms
+2025-08-14 21:46:22.840 +05:30 [INF] HTTP GET /api/Restaurant/3 responded 200 in 18.0846 ms
+2025-08-14 21:46:22.843 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/3 responded 200 in 21.1124 ms
+2025-08-14 21:46:22.858 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/user/10   Responded with [200] in 5ms
+2025-08-14 21:46:22.861 +05:30 [INF] HTTP GET /api/CartItem/user/10 responded 200 in 8.7468 ms
+2025-08-14 21:46:24.296 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 9ms
+2025-08-14 21:46:24.299 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 13.0289 ms
+2025-08-14 21:46:25.926 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 12ms
+2025-08-14 21:46:25.931 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 20ms
+2025-08-14 21:46:25.931 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon/restaurant/4   Responded with [200] in 13ms
+2025-08-14 21:46:25.932 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 18.4573 ms
+2025-08-14 21:46:25.935 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 24.4907 ms
+2025-08-14 21:46:25.936 +05:30 [INF] HTTP GET /api/Coupon/restaurant/4 responded 200 in 18.0004 ms
+2025-08-14 21:46:27.641 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 27ms
+2025-08-14 21:46:27.644 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 30.2781 ms
+2025-08-14 21:46:29.028 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 10ms
+2025-08-14 21:46:29.028 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10   Responded with [200] in 8ms
+2025-08-14 21:46:29.032 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 14.9904 ms
+2025-08-14 21:46:29.032 +05:30 [INF] HTTP GET /api/User/10 responded 200 in 13.1998 ms
+2025-08-14 21:46:41.535 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakber13@gmail.com"} Responded with [200] in 3562ms
+2025-08-14 21:46:41.539 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3566.9675 ms

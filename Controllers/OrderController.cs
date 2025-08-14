@@ -1,45 +1,54 @@
-﻿using FoodDeliveryBackend.Data;
-using FoodDeliveryBackend.DTOs;
-using FoodDeliveryBackend.Models;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
+using FoodDeliveryBackend.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+
+
 using System.Text.Json;
+using FoodDeliveryBackend.Pagination;
 
 
 namespace FoodDeliveryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class OrderController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IOrderService _orderService;
 
-        public OrderController(AppDbContext context)
+        public OrderController(IOrderService orderService)
         {
-            _context = context;
+            _orderService = orderService;
         }
 
        
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<IEnumerable<OrderResponse>>> GetOrders([FromQuery] PaginationParams paginationParams)
         {
-            return await _context.Orders
-                .Include(o => o.Restaurant)                          
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.MenuItem)                 
-                .ToListAsync();
+            var pagedOrders = await _orderService.GetAllOrdersAsync(paginationParams);
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(new {
+                pagedOrders.CurrentPage,
+                pagedOrders.PageSize,
+                pagedOrders.TotalCount,
+                pagedOrders.TotalPages,
+                pagedOrders.HasNext,
+                pagedOrders.HasPrevious
+            }));
+
+            return Ok(pagedOrders);
         }
 
        
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
+        public async Task<ActionResult<OrderResponse>> GetOrder([FromRoute] int id)
         {
-            var order = await _context.Orders
-                .Include(o => o.Restaurant)
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.MenuItem)
-                .FirstOrDefaultAsync(o => o.Id == id);
-
+            var order = await _orderService.GetOrderByIdAsync(id);
             if (order == null)
             {
                 return NotFound();
@@ -50,75 +59,27 @@ namespace FoodDeliveryBackend.Controllers
 
         
         [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetOrdersByUserId(int userId)
+        public async Task<IActionResult> GetOrdersByUserId([FromRoute] int userId)
         {
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId)
-                .Include(o => o.Restaurant)
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.MenuItem) 
-                .OrderByDescending(o => o.OrderDate)
-                .ToListAsync();
-
+            var orders = await _orderService.GetOrdersByUserIdAsync(userId);
             return Ok(orders);
         }
         
         [HttpGet("user/{userId}/search")]
-        public async Task<IActionResult> SearchOrdersByRestaurant(int userId, [FromQuery] string restaurantName = "")
+        public async Task<IActionResult> SearchOrdersByRestaurant([FromRoute] int userId, [FromQuery] string restaurantName = "")
         {
-            var orders = await _context.Orders
-                .Where(o => o.UserId == userId &&
-                       (string.IsNullOrEmpty(restaurantName) ||
-                        o.Restaurant!.Name.Contains(restaurantName)))
-                .Include(o => o.Restaurant)
-                .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.MenuItem)
-                .OrderByDescending(o => o.OrderDate) 
-                .ToListAsync();
-
+            var orders = await _orderService.SearchOrdersByRestaurantAsync(userId, restaurantName);
             return Ok(orders);
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<Order>> AddOrder([FromBody] OrderDto orderDto)
+        public async Task<ActionResult<OrderResponse>> AddOrder([FromBody] CreateOrderRequest orderDto)
         {
             try
             {
-                var order = new Order
-                {
-                    UserId = orderDto.UserId,
-                    RestaurantId = orderDto.RestaurantId,
-                    OrderDate = orderDto.OrderDate,
-                    TotalAmount = orderDto.TotalAmount,
-                    Status = orderDto.Status,
-                    Address = orderDto.Address,
-                    PaymentMethod = orderDto.PaymentMethod
-                };
-
-                
-                foreach (var itemDto in orderDto.OrderItems)
-                {
-                    order.OrderItems.Add(new OrderItem
-                    {
-                        MenuItemId = itemDto.MenuItemId,
-                        Quantity = itemDto.Quantity,
-                        Price = itemDto.Price,
-                        Order = order 
-                    });
-                }
-
-                _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
-
-                return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
-            }
-            catch (DbUpdateException ex)
-            {
-                Console.WriteLine("❌ DB Update Exception: " + ex.Message);
-                if (ex.InnerException != null)
-                    Console.WriteLine("👉 Inner Exception: " + ex.InnerException.Message);
-                return StatusCode(500, "DB error: " + ex.InnerException?.Message);
+                var newOrder = await _orderService.CreateOrderAsync(orderDto);
+                return CreatedAtAction(nameof(GetOrder), new { id = newOrder.Id }, newOrder);
             }
             catch (Exception ex)
             {
@@ -131,38 +92,19 @@ namespace FoodDeliveryBackend.Controllers
 
        
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] JsonElement body)
+        public async Task<IActionResult> UpdateOrderStatus([FromRoute] int id, [FromBody] string status)
         {
-            var existingOrder = await _context.Orders.FindAsync(id);
-            if (existingOrder == null)
-            {
-                return NotFound();
-            }
-
-            if (body.TryGetProperty("status", out var statusElement))
-            {
-                existingOrder.Status = statusElement.GetString();
-                await _context.SaveChangesAsync();
-                return NoContent();
-            }
-
-            return BadRequest("Status field is required.");
+            await _orderService.UpdateOrderStatusAsync(id, status);
+            return NoContent();
         }
 
 
 
         
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(int id)
+        public async Task<IActionResult> DeleteOrder([FromRoute] int id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
+            await _orderService.DeleteOrderAsync(id);
             return NoContent();
         }
     }

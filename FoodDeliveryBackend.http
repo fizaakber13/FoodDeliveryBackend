@@ -1,6 +1,36 @@
-@FoodDeliveryBackend_HostAddress = http://localhost:5169
+@FoodDeliveryBackend_HostAddress = https://localhost:7173
+@accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEwIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiZml6YWFrYmFyMTMwM0BnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzUzODYzNzQ0LCJpc3MiOiJGb29kRGVsaXZlcnlCYWNrZW5kIiwiYXVkIjoiRm9vZERlbGl2ZXJ5Q2xpZW50In0.CkTM5rSxxJA_XtgPXYhdIHw3HwcMQb-W45iWhDbifTo
 
+###
+# 1. Get WeatherForecast (No authorization needed)
 GET {{FoodDeliveryBackend_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+# 2. Send OTP to your email
+# Replace with your email address
+POST {{FoodDeliveryBackend_HostAddress}}/api/auth/send-otp
+Content-Type: application/json
+
+{
+  "email": "fizaakbar1303@gmail.com"
+}
+
+###
+# 3. Verify the OTP from your email to get a token
+# Replace the otp with the one you received
+POST {{FoodDeliveryBackend_HostAddress}}/api/auth/verify-otp
+Content-Type: application/json
+
+{
+  "email": "fizaakbar1303@gmail.com",
+  "otp": "123456"
+}
+
+###
+# 4. Get a user by ID (NEEDS AUTHORIZATION)
+# After running step 3, copy the "accessToken" from the response
+# and paste it into the @accessToken variable at the top of this file.
+GET {{FoodDeliveryBackend_HostAddress}}/api/user/10
+Authorization: Bearer {{accessToken}}
+Accept: application/json

@@ -1,64 +1,72 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using FoodDeliveryBackend.Data;
-using FoodDeliveryBackend.Models;
-using System;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System;
+using FoodDeliveryBackend.Services.Interfaces;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+
+using System.Text.Json;
+using FoodDeliveryBackend.Pagination;
 
 namespace FoodDeliveryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class CouponController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ICouponService _couponService;
 
-        public CouponController(AppDbContext ctx) => _context = ctx;
+        public CouponController(ICouponService couponService)
+        {
+            _couponService = couponService;
+        }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Coupon>>> GetCoupons() =>
-          await _context.Coupons.ToListAsync();
+        public async Task<ActionResult<IEnumerable<CouponResponse>>> GetCoupons([FromQuery] PaginationParams paginationParams)
+        {
+            var pagedCoupons = await _couponService.GetAllCouponsAsync(paginationParams);
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(new {
+                pagedCoupons.CurrentPage,
+                pagedCoupons.PageSize,
+                pagedCoupons.TotalCount,
+                pagedCoupons.TotalPages,
+                pagedCoupons.HasNext,
+                pagedCoupons.HasPrevious
+            }));
+
+            return Ok(pagedCoupons);
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Coupon>> GetCoupon(int id) =>
-          await _context.Coupons.FindAsync(id) switch
-          {
-              null => NotFound(),
-              var coupon => coupon
-          };
+        public async Task<ActionResult<CouponResponse>> GetCoupon([FromRoute] int id)
+        {
+            var coupon = await _couponService.GetCouponByIdAsync(id);
+            if (coupon == null) return NotFound();
+            return coupon;
+        }
+
+        [HttpGet("restaurant/{restaurantId}")]
+        public async Task<ActionResult<IEnumerable<CouponResponse>>> GetCouponsByRestaurantId([FromRoute] int restaurantId)
+        {
+            var coupons = await _couponService.GetCouponsByRestaurantIdAsync(restaurantId);
+            return Ok(coupons);
+        }
 
         [HttpPost]
-        public async Task<ActionResult<Coupon>> AddCoupon(Coupon coupon)
+        public async Task<ActionResult<CouponResponse>> AddCoupon([FromBody] CreateCouponRequest couponDto)
         {
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    var errors = ModelState.Values
-                        .SelectMany(v => v.Errors)
-                        .Select(e => e.ErrorMessage);
-                    return BadRequest(new { message = "Validation failed", errors });
-                }
+                
 
-                if (coupon.Condition == "date" && !coupon.ExpirationDate.HasValue)
-                    return BadRequest("Expiration date is required for condition type 'date'.");
+                var newCoupon = await _couponService.CreateCouponAsync(couponDto);
 
-                if (coupon.Condition == "minPrice" && !coupon.MinOrderAmount.HasValue)
-                    return BadRequest("Minimum order amount is required for condition type 'minPrice'.");
-
-                if (coupon.ExpirationDate.HasValue && coupon.ExpirationDate < DateTime.Now)
-                    return BadRequest("Date must be in the future.");
-
-                _context.Coupons.Add(coupon);
-                await _context.SaveChangesAsync();
-
-                return CreatedAtAction(nameof(GetCoupon), new { id = coupon.Id }, coupon);
-            }
-            catch (DbUpdateException ex)
-            {
-                return StatusCode(500, new { message = "Database error", error = ex.InnerException?.Message ?? ex.Message });
+                return CreatedAtAction(nameof(GetCoupon), new { id = newCoupon.Id }, newCoupon);
             }
             catch (Exception ex)
             {
@@ -70,9 +78,9 @@ namespace FoodDeliveryBackend.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCoupon(int id, Coupon coupon)
+        public async Task<IActionResult> UpdateCoupon([FromRoute] int id, [FromBody] CouponResponse couponDto)
         {
-            if (id != coupon.Id)
+            if (id != couponDto.Id)
                 return BadRequest("Coupon ID mismatch.");
 
             if (!ModelState.IsValid)
@@ -83,20 +91,9 @@ namespace FoodDeliveryBackend.Controllers
                 return BadRequest(new { message = "Validation failed", errors });
             }
 
-            if (coupon.Condition == "date" && !coupon.ExpirationDate.HasValue)
-                return BadRequest("Expiration date is required for condition type 'date'.");
-
-            if (coupon.Condition == "minPrice" && !coupon.MinOrderAmount.HasValue)
-                return BadRequest("Minimum order amount is required for condition type 'minPrice'.");
-
-            if (coupon.ExpirationDate.HasValue && coupon.ExpirationDate < DateTime.Now)
-                return BadRequest("Date must be in the future.");
-
-            _context.Entry(coupon).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _couponService.UpdateCouponAsync(id, couponDto);
                 return NoContent();
             }
             catch (Exception ex)
@@ -107,12 +104,9 @@ namespace FoodDeliveryBackend.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCoupon(int id)
+        public async Task<IActionResult> DeleteCoupon([FromRoute] int id)
         {
-            var coupon = await _context.Coupons.FindAsync(id);
-            if (coupon == null) return NotFound();
-            _context.Coupons.Remove(coupon);
-            await _context.SaveChangesAsync();
+            await _couponService.DeleteCouponAsync(id);
             return NoContent();
         }
     }

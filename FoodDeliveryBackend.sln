@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36202.13 d17.14
+VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodDeliveryBackend", "FoodDeliveryBackend.csproj", "{D84F4B56-BE5A-43FF-B9B1-F825E001806F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting-Services", "..\UnitTesting\UnitTesting-Services.csproj", "{88BE2CE7-EDC2-4E12-BD9B-C12AE8AACECA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D84F4B56-BE5A-43FF-B9B1-F825E001806F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D84F4B56-BE5A-43FF-B9B1-F825E001806F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D84F4B56-BE5A-43FF-B9B1-F825E001806F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BE2CE7-EDC2-4E12-BD9B-C12AE8AACECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BE2CE7-EDC2-4E12-BD9B-C12AE8AACECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BE2CE7-EDC2-4E12-BD9B-C12AE8AACECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BE2CE7-EDC2-4E12-BD9B-C12AE8AACECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

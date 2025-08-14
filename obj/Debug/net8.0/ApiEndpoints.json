@@ -1,109 +1,84 @@
 [
   {
-    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
-    "Method": "GetAddresses",
-    "RelativePath": "api/Address",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Address, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
-    "Method": "AddAddress",
-    "RelativePath": "api/Address",
+    "ContainingType": "FoodDeliveryBackend.Controllers.AuthController",
+    "Method": "Refresh",
+    "RelativePath": "api/Auth/refresh",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "address",
-        "Type": "FoodDeliveryBackend.Models.Address",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "FoodDeliveryBackend.Models.Address",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
-    "Method": "GetAddress",
-    "RelativePath": "api/Address/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "FoodDeliveryBackend.Models.Address",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
-    "Method": "UpdateAddress",
-    "RelativePath": "api/Address/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "tokenResponse",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.Auth.TokenResponse",
         "IsRequired": true
       },
       {
-        "Name": "updatedAddress",
-        "Type": "FoodDeliveryBackend.Models.Address",
-        "IsRequired": true
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
-    "Method": "DeleteAddress",
-    "RelativePath": "api/Address/{id}",
-    "HttpMethod": "DELETE",
+    "ContainingType": "FoodDeliveryBackend.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "request",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.Auth.RegisterRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AuthController",
+    "Method": "SendOtp",
+    "RelativePath": "api/Auth/send-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.Auth.OtpSendRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AuthController",
+    "Method": "VerifyOtp",
+    "RelativePath": "api/Auth/verify-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.Auth.OtpVerification",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -115,10 +90,16 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.CartItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.CartItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -137,14 +118,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "cartItem",
-        "Type": "FoodDeliveryBackend.Models.CartItem",
+        "Name": "cartItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateCartItemRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.CartItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CartItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -166,11 +152,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.CartItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CartItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -194,9 +185,14 @@
         "IsRequired": true
       },
       {
-        "Name": "cartItem",
-        "Type": "FoodDeliveryBackend.Models.CartItem",
+        "Name": "cartItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CartItemResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -213,6 +209,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -234,9 +235,76 @@
         "Name": "newQuantity",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.CartItemController",
+    "Method": "AddOrUpdateCartItem",
+    "RelativePath": "api/CartItem/add-or-update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.AddOrUpdateCartItemRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CartItemResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.CartItemController",
+    "Method": "RemoveOrDecrementCartItem",
+    "RelativePath": "api/CartItem/remove-or-decrement",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.RemoveOrDecrementCartItemRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CartItemResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FoodDeliveryBackend.Controllers.CartItemController",
@@ -250,6 +318,11 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -266,11 +339,16 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.CartItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.CartItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -297,6 +375,11 @@
         "Name": "restaurantId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -333,6 +416,11 @@
         "Name": "couponCode",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -344,10 +432,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Coupon, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.CouponResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -366,14 +475,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "coupon",
-        "Type": "FoodDeliveryBackend.Models.Coupon",
+        "Name": "couponDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateCouponRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Coupon",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CouponResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -395,11 +509,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Coupon",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CouponResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -423,9 +542,14 @@
         "IsRequired": true
       },
       {
-        "Name": "coupon",
-        "Type": "FoodDeliveryBackend.Models.Coupon",
+        "Name": "couponDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.CouponResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -442,9 +566,45 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.CouponController",
+    "Method": "GetCouponsByRestaurantId",
+    "RelativePath": "api/Coupon/restaurant/{restaurantId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.CouponResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FoodDeliveryBackend.Controllers.MenuItemController",
@@ -453,10 +613,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.MenuItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.MenuItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -475,14 +656,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "menuItem",
-        "Type": "FoodDeliveryBackend.Models.MenuItem",
+        "Name": "menuItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateMenuItemRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.MenuItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.MenuItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -504,11 +690,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.MenuItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.MenuItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -532,9 +723,14 @@
         "IsRequired": true
       },
       {
-        "Name": "menuItem",
-        "Type": "FoodDeliveryBackend.Models.MenuItem",
+        "Name": "menuItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.MenuItemResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -551,6 +747,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -567,11 +768,16 @@
         "Name": "restaurantId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.MenuItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.MenuItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -588,7 +794,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -613,11 +825,16 @@
         "Name": "name",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.MenuItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.MenuItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -634,10 +851,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Order, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.OrderResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -657,13 +895,18 @@
     "Parameters": [
       {
         "Name": "orderDto",
-        "Type": "FoodDeliveryBackend.DTOs.OrderDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateOrderRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Order",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.OrderResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -685,11 +928,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Order",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.OrderResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -713,9 +961,14 @@
         "IsRequired": true
       },
       {
-        "Name": "body",
-        "Type": "System.Text.Json.JsonElement",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -732,6 +985,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -748,6 +1006,11 @@
         "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -769,6 +1032,11 @@
         "Name": "restaurantName",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -780,10 +1048,16 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.OrderItem, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.OrderItemResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -802,14 +1076,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "orderItem",
-        "Type": "FoodDeliveryBackend.Models.OrderItem",
+        "Name": "orderItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateOrderItemRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.OrderItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.OrderItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -831,11 +1110,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.OrderItem",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.OrderItemResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -859,9 +1143,14 @@
         "IsRequired": true
       },
       {
-        "Name": "orderItem",
-        "Type": "FoodDeliveryBackend.Models.OrderItem",
+        "Name": "orderItemDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.OrderItemResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -878,6 +1167,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -889,10 +1183,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Restaurant, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.RestaurantResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -911,14 +1226,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "restaurant",
-        "Type": "FoodDeliveryBackend.Models.Restaurant",
+        "Name": "restaurantDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateRestaurantRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Restaurant",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.RestaurantResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -940,11 +1260,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Restaurant",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.RestaurantResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -968,9 +1293,14 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedRestaurant",
-        "Type": "FoodDeliveryBackend.Models.Restaurant",
+        "Name": "restaurantDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.RestaurantResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -987,6 +1317,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -998,7 +1333,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1023,11 +1364,16 @@
         "Name": "email",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.Restaurant",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.RestaurantResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1044,7 +1390,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1064,7 +1416,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1084,7 +1442,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
@@ -1119,11 +1483,16 @@
         "Name": "rating",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Restaurant, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.RestaurantResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1140,10 +1509,16 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.RestaurantCoupon, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.RestaurantCouponResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1162,14 +1537,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "rc",
-        "Type": "FoodDeliveryBackend.Models.RestaurantCoupon",
+        "Name": "restaurantCouponDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateRestaurantCouponRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.RestaurantCoupon",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.RestaurantCouponResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1191,6 +1571,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -1205,37 +1590,16 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "FoodDeliveryBackend.Controllers.CouponApplyRequest",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CouponApplyRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.RestaurantCouponController",
-    "Method": "GetCouponsByRestaurantId",
-    "RelativePath": "api/RestaurantCoupon/restaurant/{restaurantId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "restaurantId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.Coupon, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "FoodDeliveryBackend.Controllers.RestaurantRegistrationController",
@@ -1244,10 +1608,16 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.RestaurantRegistrationRequest, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.RestaurantRegistrationRequestResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1266,21 +1636,16 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "FoodDeliveryBackend.Models.RestaurantRegistrationRequest",
+        "Name": "requestDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateRestaurantRegistrationRequest",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.TestController",
-    "Method": "Get",
-    "RelativePath": "api/Test",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -1290,10 +1655,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SearchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.Models.User, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.UserResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1315,11 +1701,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "FoodDeliveryBackend.Models.User",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.UserResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1343,9 +1734,14 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedUser",
-        "Type": "FoodDeliveryBackend.Models.User",
+        "Name": "userDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.UserResponse",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -1362,6 +1758,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -1378,6 +1779,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -1394,53 +1800,136 @@
         "Name": "email",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "FoodDeliveryBackend.Controllers.UserController",
-    "Method": "SendOtp",
-    "RelativePath": "api/User/send-otp",
+    "Method": "GetDashboardData",
+    "RelativePath": "api/User/dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "api-version",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "GetAddressesV1",
+    "RelativePath": "api/v1/Address",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.AddressResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAddressesV1"
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "AddAddress",
+    "RelativePath": "api/v1/Address",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "request",
-        "Type": "FoodDeliveryBackend.Models.OtpRequest",
+        "Name": "addressDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateAddressRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "GetAddress",
+    "RelativePath": "api/v1/Address/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/v1/Address/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "addressDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDeliveryBackend.Controllers.UserController",
-    "Method": "SignUp",
-    "RelativePath": "api/User/signup",
-    "HttpMethod": "POST",
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "DeleteAddress",
+    "RelativePath": "api/v1/Address/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "FoodDeliveryBackend.Models.User",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryBackend.Controllers.UserController",
-    "Method": "VerifyOtp",
-    "RelativePath": "api/User/verify-otp",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "OtpVerification",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1448,8 +1937,8 @@
   },
   {
     "ContainingType": "FoodDeliveryBackend.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "Method": "GetV1",
+    "RelativePath": "api/v1/WeatherForecast",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1465,6 +1954,137 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "EndpointName": "GetWeatherForecastV1"
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "GetAddressesV2",
+    "RelativePath": "api/v2/Address",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.DTOs.Responses.AddressResponse, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAddressesV2"
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "AddAddress",
+    "RelativePath": "api/v2/Address",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressDto",
+        "Type": "FoodDeliveryBackend.DTOs.Requests.CreateAddressRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "GetAddress",
+    "RelativePath": "api/v2/Address/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/v2/Address/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "addressDto",
+        "Type": "FoodDeliveryBackend.DTOs.Responses.AddressResponse",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.AddressController",
+    "Method": "DeleteAddress",
+    "RelativePath": "api/v2/Address/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryBackend.Controllers.WeatherForecastController",
+    "Method": "GetV2",
+    "RelativePath": "api/v2/WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryBackend.WeatherForecast, FoodDeliveryBackend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecastV2"
   }
 ]

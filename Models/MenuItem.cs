@@ -15,7 +15,7 @@ namespace FoodDeliveryBackend.Models
         public string Description { get; set; } = "";
 
         [Range(0, double.MaxValue, ErrorMessage = "Price must be a positive value.")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
         public double Rating { get; set; }

@@ -11,6 +11,6 @@ namespace FoodDeliveryBackend.Models
         public Restaurant? Restaurant { get; set; }
 
         public int CouponId { get; set; }
-        public Coupon? Coupon { get; set; } 
+        public Coupon Coupon { get; set; } = null!;
     }
 }

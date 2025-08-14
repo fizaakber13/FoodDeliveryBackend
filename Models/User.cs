@@ -1,35 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
 namespace FoodDeliveryBackend.Models
 {
-    [Table("User")]
     public class User
     {
-        public User()
-        {
-            Addresses = new List<Address>();
-            CartItems = new List<CartItem>();
-            Orders = new List<Order>();
-        }
-
         public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; } = "";
-
-        
-        [Required]
-        [RegularExpression(@"^(\d{10}|[\w\.-]+@[\w\.-]+\.\w{2,})$",
-            ErrorMessage = "Must be a 10-digit number or a valid email address.")]
-        public string EmailOrPhone { get; set; } = "";
-
-        
-        public bool IsAdmin { get; set; } = false;
-
-        public ICollection<Address> Addresses { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
+        public string RefreshToken { get; set; } = string.Empty;
+        public DateTime RefreshTokenExpiryTime { get; set; }
+        public List<Address> Addresses { get; set; } = new List<Address>();
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 }

@@ -102,9 +102,8 @@ namespace FoodDeliveryBackend.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("DiscountType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DiscountType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
@@ -141,8 +140,9 @@ namespace FoodDeliveryBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<double>("Rating")
                         .HasColumnType("float");
@@ -357,20 +357,30 @@ namespace FoodDeliveryBackend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("EmailOrPhone")
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("FoodDeliveryBackend.Models.Address", b =>
@@ -399,9 +409,9 @@ namespace FoodDeliveryBackend.Migrations
                         .IsRequired();
 
                     b.HasOne("FoodDeliveryBackend.Models.User", "User")
-                        .WithMany("CartItems")
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("MenuItem");
@@ -501,8 +511,6 @@ namespace FoodDeliveryBackend.Migrations
             modelBuilder.Entity("FoodDeliveryBackend.Models.User", b =>
                 {
                     b.Navigation("Addresses");
-
-                    b.Navigation("CartItems");
 
                     b.Navigation("Orders");
                 });

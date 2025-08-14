@@ -6,8 +6,8 @@ namespace FoodDeliveryBackend.Data
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-        public DbSet<RestaurantRegistrationRequest> RestaurantRegistrationRequests { get; set; }
 
+        public DbSet<RestaurantRegistrationRequest> RestaurantRegistrationRequests { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
@@ -17,7 +17,6 @@ namespace FoodDeliveryBackend.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Coupon> Coupons { get; set; }
         public DbSet<RestaurantCoupon> RestaurantCoupons { get; set; }
-
         public DbSet<OtpEntry> OtpRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +24,10 @@ namespace FoodDeliveryBackend.Data
             // unique constraint for restaurant email
             modelBuilder.Entity<Restaurant>()
                 .HasIndex(r => r.Email)
+                .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
                 .IsUnique();
 
             // user - address
@@ -41,12 +44,10 @@ namespace FoodDeliveryBackend.Data
                 .HasForeignKey(m => m.RestaurantId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // user - cartitem
-            modelBuilder.Entity<CartItem>()
-                .HasOne(c => c.User)
-                .WithMany(u => u.CartItems)
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // ✅ Ensure MenuItem.Price has proper precision
+            modelBuilder.Entity<MenuItem>()
+                .Property(m => m.Price)
+                .HasPrecision(18, 2);
 
             // restaurant - cartitem
             modelBuilder.Entity<CartItem>()

@@ -1,34 +1,38 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using FoodDeliveryBackend.Models;
-using FoodDeliveryBackend.Data;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
+using FoodDeliveryBackend.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodDeliveryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class OrderItemController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IOrderItemService _orderItemService;
 
-        public OrderItemController(AppDbContext context)
+        public OrderItemController(IOrderItemService orderItemService)
         {
-            _context = context;
+            _orderItemService = orderItemService;
         }
 
         // GET code
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OrderItem>>> GetOrderItems()
+        public async Task<ActionResult<IEnumerable<OrderItemResponse>>> GetOrderItems()
         {
-            return await _context.OrderItems.Include(oi => oi.MenuItem).ToListAsync();
+            var orderItems = await _orderItemService.GetAllOrderItemsAsync();
+            return Ok(orderItems);
         }
 
         
         [HttpGet("{id}")]
-        public async Task<ActionResult<OrderItem>> GetOrderItem(int id)
+        public async Task<ActionResult<OrderItemResponse>> GetOrderItem([FromRoute] int id)
         {
-            var orderItem = await _context.OrderItems.Include(oi => oi.MenuItem)
-                                                     .FirstOrDefaultAsync(oi => oi.Id == id);
+            var orderItem = await _orderItemService.GetOrderItemByIdAsync(id);
             if (orderItem == null)
             {
                 return NotFound();
@@ -38,40 +42,30 @@ namespace FoodDeliveryBackend.Controllers
 
         // POST code
         [HttpPost]
-        public async Task<ActionResult<OrderItem>> AddOrderItem(OrderItem orderItem)
+        public async Task<ActionResult<OrderItemResponse>> AddOrderItem([FromBody] CreateOrderItemRequest orderItemDto)
         {
-            _context.OrderItems.Add(orderItem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetOrderItem), new { id = orderItem.Id }, orderItem);
+            var newOrderItem = await _orderItemService.CreateOrderItemAsync(orderItemDto);
+            return CreatedAtAction(nameof(GetOrderItem), new { id = newOrderItem.Id }, newOrderItem);
         }
 
         // PUT
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateOrderItem(int id, OrderItem orderItem)
+        public async Task<IActionResult> UpdateOrderItem([FromRoute] int id, [FromBody] OrderItemResponse orderItemDto)
         {
-            if (id != orderItem.Id)
+            if (id != orderItemDto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(orderItem).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            await _orderItemService.UpdateOrderItemAsync(id, orderItemDto);
             return NoContent();
         }
 
         // DELETE
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrderItem(int id)
+        public async Task<IActionResult> DeleteOrderItem([FromRoute] int id)
         {
-            var orderItem = await _context.OrderItems.FindAsync(id);
-            if (orderItem == null)
-            {
-                return NotFound();
-            }
-
-            _context.OrderItems.Remove(orderItem);
-            await _context.SaveChangesAsync();
+            await _orderItemService.DeleteOrderItemAsync(id);
             return NoContent();
         }
     }

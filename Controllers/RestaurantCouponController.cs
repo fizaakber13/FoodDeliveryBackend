@@ -1,101 +1,60 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using FoodDeliveryBackend.Models;
-using FoodDeliveryBackend.Data;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
+using FoodDeliveryBackend.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodDeliveryBackend.Controllers
 {
-    public class CouponApplyRequest
-    {
-        public int RestaurantId { get; set; }
-        public string CouponCode { get; set; } = string.Empty;
-        public decimal CartTotal { get; set; }
-    }
-
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RestaurantCouponController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRestaurantCouponService _restaurantCouponService;
+        private readonly ICouponService _couponService;
 
-        public RestaurantCouponController(AppDbContext context)
+        public RestaurantCouponController(IRestaurantCouponService restaurantCouponService, ICouponService couponService)
         {
-            _context = context;
+            _restaurantCouponService = restaurantCouponService;
+            _couponService = couponService;
         }
 
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RestaurantCoupon>>> GetAll()
+        public async Task<ActionResult<IEnumerable<RestaurantCouponResponse>>> GetAll()
         {
-            return await _context.RestaurantCoupons
-                .Include(rc => rc.Restaurant)
-                .Include(rc => rc.Coupon)
-                .ToListAsync();
-        }
-
-        
-        [HttpGet("restaurant/{restaurantId}")]
-        public async Task<ActionResult<IEnumerable<Coupon>>> GetCouponsByRestaurantId(int restaurantId)
-        {
-            var coupons = await _context.RestaurantCoupons
-                .Where(rc => rc.RestaurantId == restaurantId)
-                .Include(rc => rc.Coupon)
-                .Select(rc => rc.Coupon)
-                .ToListAsync();
-
-            return coupons;
+            var restaurantCoupons = await _restaurantCouponService.GetAllRestaurantCouponsAsync();
+            return Ok(restaurantCoupons);
         }
 
         
         [HttpPost("apply")]
         public async Task<IActionResult> ApplyCoupon([FromBody] CouponApplyRequest request)
         {
-            var coupon = await _context.RestaurantCoupons
-                .Where(rc => rc.RestaurantId == request.RestaurantId && rc.Coupon.Code == request.CouponCode)
-                .Select(rc => rc.Coupon)
-                .FirstOrDefaultAsync();
-
-            if (coupon == null)
-                return NotFound("Coupon not valid for this restaurant.");
-
-            if (!coupon.IsActive)
-                return BadRequest("Coupon is inactive.");
-
-            if (coupon.ExpirationDate < DateTime.UtcNow)
-                return BadRequest("Coupon has expired.");
-
-            if (request.CartTotal < coupon.MinOrderAmount)
-                return BadRequest($"Minimum order amount is {coupon.MinOrderAmount} to use this coupon.");
-
-            return Ok(new
+            var result = await _restaurantCouponService.ApplyCouponAsync(request);
+            if (result.GetType().GetProperty("Message") != null) // Check if it's an error message
             {
-                coupon.Code,
-                coupon.DiscountAmount,
-                coupon.DiscountType
-            });
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         
         [HttpPost]
-        public async Task<ActionResult<RestaurantCoupon>> Add(RestaurantCoupon rc)
+        public async Task<ActionResult<RestaurantCouponResponse>> Add([FromBody] CreateRestaurantCouponRequest restaurantCouponDto)
         {
-            _context.RestaurantCoupons.Add(rc);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetAll), new { id = rc.Id }, rc);
+            var newRestaurantCoupon = await _restaurantCouponService.CreateRestaurantCouponAsync(restaurantCouponDto);
+            return CreatedAtAction(nameof(GetAll), new { id = newRestaurantCoupon.Id }, newRestaurantCoupon);
         }
 
        
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var rc = await _context.RestaurantCoupons.FindAsync(id);
-            if (rc == null)
-                return NotFound();
-
-            _context.RestaurantCoupons.Remove(rc);
-            await _context.SaveChangesAsync();
-
+            await _restaurantCouponService.DeleteRestaurantCouponAsync(id);
             return NoContent();
         }
     }

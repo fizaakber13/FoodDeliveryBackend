@@ -17,7 +17,7 @@ namespace FoodDeliveryBackend.Models
         public decimal DiscountAmount { get; set; }
 
         [Required]
-        public string DiscountType { get; set; } = "";
+        public DiscountType DiscountType { get; set; } = DiscountType.Flat;
 
         [Required]
         public string Condition { get; set; } = "";

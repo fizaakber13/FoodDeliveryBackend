@@ -17,9 +17,9 @@ namespace FoodDeliveryBackend.Models
         public User? User { get; set; }
 
         [JsonIgnore]
-        public Restaurant? Restaurant { get; set; }
+        public Restaurant Restaurant { get; set; } = null!;
 
         [JsonIgnore]
-        public MenuItem? MenuItem { get; set; }
+        public MenuItem MenuItem { get; set; } = null!;
     }
 }

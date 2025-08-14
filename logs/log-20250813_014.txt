@@ -1,0 +1,261 @@
+2025-08-13 20:17:29.438 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakber13@gmail.com"} Responded with [200] in 6238ms
+2025-08-13 20:17:29.501 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 6308.6407 ms
+2025-08-13 20:17:43.730 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakber13@gmail.com","otp":"986288"} Responded with [200] in 140ms
+2025-08-13 20:17:43.733 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 143.3395 ms
+2025-08-13 20:17:43.821 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 59ms
+2025-08-13 20:17:43.825 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 63.7310 ms
+2025-08-13 20:17:43.932 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:17:44.011 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 168ms
+2025-08-13 20:17:44.013 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 171.3137 ms
+2025-08-13 20:19:39.673 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3980ms
+2025-08-13 20:19:39.677 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3984.1981 ms
+2025-08-13 20:19:54.880 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"343987"} Responded with [200] in 16ms
+2025-08-13 20:19:54.883 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 19.3095 ms
+2025-08-13 20:19:54.941 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 4ms
+2025-08-13 20:19:54.946 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 9.2197 ms
+2025-08-13 20:19:54.989 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:19:55.005 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 40ms
+2025-08-13 20:19:55.008 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 43.8003 ms
+2025-08-13 20:24:43.177 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 4611ms
+2025-08-13 20:24:43.187 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 4621.2600 ms
+2025-08-13 20:25:05.071 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"719851"} Responded with [200] in 16ms
+2025-08-13 20:25:05.074 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 19.8727 ms
+2025-08-13 20:25:05.153 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 12ms
+2025-08-13 20:25:05.158 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 17.2242 ms
+2025-08-13 20:25:05.205 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:25:05.220 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 43ms
+2025-08-13 20:25:05.223 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 46.2631 ms
+2025-08-13 20:29:40.039 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakber13@gmail.com"} Responded with [200] in 4032ms
+2025-08-13 20:29:40.046 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 4039.9789 ms
+2025-08-13 20:29:50.078 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakber13@gmail.com","otp":"258990"} Responded with [200] in 19ms
+2025-08-13 20:29:50.081 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 22.1288 ms
+2025-08-13 20:29:50.167 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 2ms
+2025-08-13 20:29:50.170 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 6.5603 ms
+2025-08-13 20:29:50.237 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:29:50.252 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 52ms
+2025-08-13 20:29:50.256 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 56.0836 ms
+2025-08-13 20:31:31.403 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3894ms
+2025-08-13 20:31:31.406 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3897.4928 ms
+2025-08-13 20:31:45.233 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"843520"} Responded with [200] in 15ms
+2025-08-13 20:31:45.236 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 19.3393 ms
+2025-08-13 20:31:45.472 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [200] in 165ms
+2025-08-13 20:31:45.474 +05:30 [INF] HTTP GET /api/user/dashboard responded 200 in 167.0324 ms
+2025-08-13 20:31:49.650 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:31:49.654 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:31:49.709 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 125ms
+2025-08-13 20:31:49.711 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 127.8017 ms
+2025-08-13 20:31:53.338 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/CartItem/summary/10   Responded with [200] in 119ms
+2025-08-13 20:31:53.340 +05:30 [INF] HTTP GET /api/CartItem/summary/10 responded 200 in 122.0279 ms
+2025-08-13 20:31:54.904 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order/user/10   Responded with [200] in 128ms
+2025-08-13 20:31:54.906 +05:30 [INF] HTTP GET /api/Order/user/10 responded 200 in 131.0310 ms
+2025-08-13 20:31:57.728 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10   Responded with [200] in 72ms
+2025-08-13 20:31:57.730 +05:30 [INF] HTTP GET /api/User/10 responded 200 in 74.9676 ms
+2025-08-13 20:31:57.730 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User/10/addresses   Responded with [200] in 75ms
+2025-08-13 20:31:57.734 +05:30 [INF] HTTP GET /api/User/10/addresses responded 200 in 79.0641 ms
+2025-08-13 20:32:14.568 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakber13@gmail.com"} Responded with [200] in 4341ms
+2025-08-13 20:32:14.571 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 4345.6368 ms
+2025-08-13 20:32:30.696 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakber13@gmail.com","otp":"865893"} Responded with [200] in 18ms
+2025-08-13 20:32:30.699 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 21.7032 ms
+2025-08-13 20:32:30.790 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 21ms
+2025-08-13 20:32:30.792 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 24.0677 ms
+2025-08-13 20:32:30.798 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:30.804 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:30.812 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:30.815 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:30.826 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User   Responded with [200] in 61ms
+2025-08-13 20:32:30.829 +05:30 [INF] HTTP GET /api/User responded 200 in 63.8186 ms
+2025-08-13 20:32:30.868 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order   Responded with [200] in 92ms
+2025-08-13 20:32:30.871 +05:30 [INF] HTTP GET /api/Order responded 200 in 95.1391 ms
+2025-08-13 20:32:34.861 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 20:32:34.863 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 12.0503 ms
+2025-08-13 20:32:36.672 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 20:32:36.675 +05:30 [INF] HTTP GET /api/User responded 200 in 11.9572 ms
+2025-08-13 20:32:38.109 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 14ms
+2025-08-13 20:32:38.113 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 19.0504 ms
+2025-08-13 20:32:40.133 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 7ms
+2025-08-13 20:32:40.138 +05:30 [INF] HTTP GET /api/User responded 200 in 13.4566 ms
+2025-08-13 20:32:42.714 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=10  Responded with [200] in 13ms
+2025-08-13 20:32:42.716 +05:30 [INF] HTTP GET /api/Order responded 200 in 15.5740 ms
+2025-08-13 20:32:48.562 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:48.564 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 20:32:48.609 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 68ms
+2025-08-13 20:32:48.612 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 70.7661 ms
+2025-08-13 20:32:58.192 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 8ms
+2025-08-13 20:32:58.194 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 10.9073 ms
+2025-08-13 20:33:00.295 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/3 ?PageNumber=1&PageSize=10  Responded with [200] in 26ms
+2025-08-13 20:33:00.298 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/3 responded 200 in 29.2141 ms
+2025-08-13 20:33:08.682 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'FoodDeliveryBackend.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_OrderItem_MenuItem_MenuItemId". The conflict occurred in database "FoodOrderingDB", table "dbo.OrderItem", column 'MenuItemId'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:22dce84c-8f3c-41d6-a6e6-6e30f27cf546
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_OrderItem_MenuItem_MenuItemId". The conflict occurred in database "FoodOrderingDB", table "dbo.OrderItem", column 'MenuItemId'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:22dce84c-8f3c-41d6-a6e6-6e30f27cf546
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-08-13 20:33:08.825 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The DELETE statement conflicted with the REFERENCE constraint "FK_OrderItem_MenuItem_MenuItemId". The conflict occurred in database "FoodOrderingDB", table "dbo.OrderItem", column 'MenuItemId'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:22dce84c-8f3c-41d6-a6e6-6e30f27cf546
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at FoodDeliveryBackend.Repositories.UnitOfWork.SaveChangesAsync() in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Repositories\UnitOfWork.cs:line 43
+   at FoodDeliveryBackend.Services.Implementations.MenuItemService.DeleteMenuItemAsync(Int32 id) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\MenuItemService.cs:line 83
+   at FoodDeliveryBackend.Controllers.MenuItemController.DeleteMenuItem(Int32 id) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\MenuItemController.cs:line 108
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:33:08.871 +05:30 [INF] Source:[::1] Request: DELETE https localhost:7173/api/MenuItem/1   Responded with [500] in 252ms
+2025-08-13 20:33:08.873 +05:30 [ERR] HTTP DELETE /api/MenuItem/1 responded 500 in 254.3685 ms
+2025-08-13 20:33:16.926 +05:30 [INF] Source:[::1] Request: DELETE https localhost:7173/api/MenuItem/4   Responded with [204] in 17ms
+2025-08-13 20:33:16.928 +05:30 [INF] HTTP DELETE /api/MenuItem/4 responded 204 in 19.0143 ms
+2025-08-13 20:33:16.942 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/MenuItem/by-restaurant/3 ?PageNumber=1&PageSize=10  Responded with [200] in 5ms
+2025-08-13 20:33:16.945 +05:30 [INF] HTTP GET /api/MenuItem/by-restaurant/3 responded 200 in 8.3640 ms
+2025-08-13 20:55:49.255 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 67ms
+2025-08-13 20:55:49.269 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 88.5064 ms
+2025-08-13 20:58:25.593 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 24ms
+2025-08-13 20:58:25.601 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 31.4250 ms
+2025-08-13 20:58:25.606 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order   Responded with [200] in 32ms
+2025-08-13 20:58:25.606 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User   Responded with [200] in 36ms
+2025-08-13 20:58:25.614 +05:30 [INF] HTTP GET /api/Order responded 200 in 41.3063 ms
+2025-08-13 20:58:25.615 +05:30 [INF] HTTP GET /api/User responded 200 in 46.2255 ms
+2025-08-13 20:58:27.612 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 8ms
+2025-08-13 20:58:27.615 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 11.7369 ms
+2025-08-13 20:58:29.816 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 20:58:29.819 +05:30 [INF] HTTP GET /api/User responded 200 in 12.8448 ms
+2025-08-13 20:58:33.151 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=10  Responded with [200] in 13ms
+2025-08-13 20:58:33.154 +05:30 [INF] HTTP GET /api/Order responded 200 in 16.2633 ms
+2025-08-13 20:58:35.480 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 10ms
+2025-08-13 20:58:35.483 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 14.4645 ms
+2025-08-13 20:59:58.989 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 14ms
+2025-08-13 20:59:58.997 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 22.9921 ms
+2025-08-13 21:00:02.978 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 7ms
+2025-08-13 21:00:02.981 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 10.5485 ms
+2025-08-13 21:00:30.904 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 12ms
+2025-08-13 21:00:30.909 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 17.7095 ms
+2025-08-13 21:00:46.860 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 7ms
+2025-08-13 21:00:46.862 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 10.0618 ms

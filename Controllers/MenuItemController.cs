@@ -1,57 +1,66 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using FoodDeliveryBackend.Models;
-using FoodDeliveryBackend.Data;
+﻿using FoodDeliveryBackend.DTOs.Requests;
+using FoodDeliveryBackend.DTOs.Responses;
+using FoodDeliveryBackend.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
+using FoodDeliveryBackend.Pagination;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodDeliveryBackend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class MenuItemController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IMenuItemService _menuItemService;
 
-        public MenuItemController(AppDbContext context)
+        public MenuItemController(IMenuItemService menuItemService)
         {
-            _context = context;
+            _menuItemService = menuItemService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MenuItem>>> GetMenuItems()
+        public async Task<ActionResult<IEnumerable<MenuItemResponse>>> GetMenuItems([FromQuery] PaginationParams paginationParams)
         {
-            return await _context.MenuItems.Include(m => m.Restaurant).ToListAsync();
+            var pagedMenuItems = await _menuItemService.GetMenuItemsAsync(paginationParams);
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(new {
+                pagedMenuItems.CurrentPage,
+                pagedMenuItems.PageSize,
+                pagedMenuItems.TotalCount,
+                pagedMenuItems.TotalPages,
+                pagedMenuItems.HasNext,
+                pagedMenuItems.HasPrevious
+            }));
+
+            return Ok(pagedMenuItems);
         }
 
         [HttpGet("names")]
         public async Task<ActionResult<IEnumerable<string>>> GetMenuItemNames()
         {
-            return await _context.MenuItems
-                                 .Select(m => m.Name)
-                                 .Distinct()
-                                 .ToListAsync();
+            return Ok(await _menuItemService.GetMenuItemNamesAsync());
         }
 
         [HttpGet("search")]
-        public async Task<ActionResult<IEnumerable<MenuItem>>> SearchMenuItems([FromQuery] string name)
+        public async Task<ActionResult<IEnumerable<MenuItemResponse>>> SearchMenuItems([FromQuery] string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 return BadRequest("Name query is required.");
 
-            var items = await _context.MenuItems
-                                      .Where(m => m.Name.ToLower().Contains(name.ToLower()))
-                                      .Include(m => m.Restaurant)
-                                      .ToListAsync();
+            var items = await _menuItemService.SearchMenuItemsAsync(name);
 
             return Ok(items);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<MenuItem>> GetMenuItem(int id)
+        public async Task<ActionResult<MenuItemResponse>> GetMenuItem([FromRoute] int id)
         {
-            var menuItem = await _context.MenuItems
-                                         .Include(m => m.Restaurant)
-                                         .FirstOrDefaultAsync(m => m.Id == id);
-
+            var menuItem = await _menuItemService.GetMenuItemByIdAsync(id);
             if (menuItem == null)
                 return NotFound();
 
@@ -59,49 +68,32 @@ namespace FoodDeliveryBackend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MenuItem>> AddMenuItem(MenuItem menuItem)
+        public async Task<ActionResult<MenuItemResponse>> AddMenuItem([FromBody] CreateMenuItemRequest menuItemDto)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            
 
-            if (menuItem.Rating < 0 || menuItem.Rating > 5)
-                return BadRequest("Rating must be between 0 and 5.");
+            var newMenuItem = await _menuItemService.CreateMenuItemAsync(menuItemDto);
 
-            var restaurantExists = await _context.Restaurants.AnyAsync(r => r.Id == menuItem.RestaurantId);
-            if (!restaurantExists)
-                return BadRequest($"Restaurant with ID {menuItem.RestaurantId} does not exist.");
-
-            _context.MenuItems.Add(menuItem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetMenuItem), new { id = menuItem.Id }, menuItem);
+            return CreatedAtAction(nameof(GetMenuItem), new { id = newMenuItem.Id }, newMenuItem);
         }
 
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMenuItem(int id, MenuItem menuItem)
+        public async Task<IActionResult> UpdateMenuItem([FromRoute] int id, [FromBody] MenuItemResponse menuItemDto)
         {
-            if (id != menuItem.Id)
+            if (id != menuItemDto.Id)
                 return BadRequest();
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            
 
-            if (menuItem.Rating < 0 || menuItem.Rating > 5)
-                return BadRequest("Rating must be between 0 and 5.");
-
-            _context.Entry(menuItem).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            await _menuItemService.UpdateMenuItemAsync(id, menuItemDto);
             return NoContent();
         }
         [HttpGet("by-restaurant/{restaurantId}")]
-        public async Task<ActionResult<IEnumerable<MenuItem>>> GetMenuItemsByRestaurant(int restaurantId)
+        public async Task<ActionResult<IEnumerable<MenuItemResponse>>> GetMenuItemsByRestaurant([FromRoute] int restaurantId)
         {
-            var items = await _context.MenuItems
-                                      .Where(m => m.RestaurantId == restaurantId)
-                                      .Include(m => m.Restaurant)
-                                      .ToListAsync();
+            var items = await _menuItemService.GetMenuItemsByRestaurantIdAsync(restaurantId);
 
             if (items == null || !items.Any())
                 return NotFound("No menu items found for this restaurant.");
@@ -111,14 +103,9 @@ namespace FoodDeliveryBackend.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMenuItem(int id)
+        public async Task<IActionResult> DeleteMenuItem([FromRoute] int id)
         {
-            var menuItem = await _context.MenuItems.FindAsync(id);
-            if (menuItem == null)
-                return NotFound();
-
-            _context.MenuItems.Remove(menuItem);
-            await _context.SaveChangesAsync();
+            await _menuItemService.DeleteMenuItemAsync(id);
             return NoContent();
         }
     }

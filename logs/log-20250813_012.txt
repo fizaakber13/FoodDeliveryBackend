@@ -1,0 +1,90 @@
+2025-08-13 20:07:17.909 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 5480ms
+2025-08-13 20:07:17.966 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 5542.4531 ms
+2025-08-13 20:07:35.241 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"106266"} Responded with [200] in 136ms
+2025-08-13 20:07:35.245 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 140.5748 ms
+2025-08-13 20:07:35.326 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 48ms
+2025-08-13 20:07:35.329 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 51.7068 ms
+2025-08-13 20:07:35.349 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [401] in 4ms
+2025-08-13 20:07:35.351 +05:30 [INF] HTTP POST /api/auth/refresh responded 401 in 6.7505 ms
+2025-08-13 20:09:47.015 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 213ms
+2025-08-13 20:09:47.054 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 257.9515 ms
+2025-08-13 20:09:47.833 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:09:47.932 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 864ms
+2025-08-13 20:09:47.935 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 867.4542 ms
+2025-08-13 20:09:51.323 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [401] in 5ms
+2025-08-13 20:09:51.325 +05:30 [INF] HTTP GET /api/Restaurant responded 401 in 8.4449 ms
+2025-08-13 20:12:16.787 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakber13@gmail.com"} Responded with [200] in 5266ms
+2025-08-13 20:12:16.791 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 5271.1284 ms
+2025-08-13 20:12:24.554 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakber13@gmail.com","otp":"327650"} Responded with [200] in 89ms
+2025-08-13 20:12:24.557 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 92.5341 ms
+2025-08-13 20:12:24.612 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 5ms
+2025-08-13 20:12:24.616 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 9.2470 ms
+2025-08-13 20:12:24.658 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:12:24.682 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 50ms
+2025-08-13 20:12:24.685 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 53.9621 ms
+2025-08-13 20:12:34.109 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3040ms
+2025-08-13 20:12:34.113 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3044.0653 ms
+2025-08-13 20:13:03.615 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"802056"} Responded with [200] in 17ms
+2025-08-13 20:13:03.618 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 20.4489 ms
+2025-08-13 20:13:03.641 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 1ms
+2025-08-13 20:13:03.644 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 4.5671 ms
+2025-08-13 20:13:03.702 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:13:03.716 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 40ms
+2025-08-13 20:13:03.719 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 43.3638 ms
+2025-08-13 20:16:35.195 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/send-otp  {"email":"fizaakbar1303@gmail.com"} Responded with [200] in 3177ms
+2025-08-13 20:16:35.204 +05:30 [INF] HTTP POST /api/auth/send-otp responded 200 in 3186.7644 ms
+2025-08-13 20:16:45.770 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/verify-otp  {"email":"fizaakbar1303@gmail.com","otp":"624322"} Responded with [200] in 16ms
+2025-08-13 20:16:45.772 +05:30 [INF] HTTP POST /api/auth/verify-otp responded 200 in 19.0773 ms
+2025-08-13 20:16:45.844 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/user/dashboard   Responded with [401] in 2ms
+2025-08-13 20:16:45.847 +05:30 [INF] HTTP GET /api/user/dashboard responded 401 in 4.5625 ms
+2025-08-13 20:16:45.895 +05:30 [ERR] An unhandled exception occurred in an action method.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX12741: JWT must have three segments (JWS) or five segments (JWE).
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at FoodDeliveryBackend.Services.TokenService.GetPrincipalFromExpiredToken(String token) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Services\TokenService.cs:line 61
+   at FoodDeliveryBackend.Controllers.AuthController.Refresh(TokenResponse tokenResponse) in C:\Users\a2832865\Source\Repos\FoodDeliveryBackend\Controllers\AuthController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-08-13 20:16:45.909 +05:30 [INF] Source:[::1] Request: POST https localhost:7173/api/auth/refresh  {"accessToken":"undefined","refreshToken":"undefined"} Responded with [500] in 43ms
+2025-08-13 20:16:45.912 +05:30 [ERR] HTTP POST /api/auth/refresh responded 500 in 47.2749 ms

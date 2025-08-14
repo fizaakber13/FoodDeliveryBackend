@@ -1,0 +1,52 @@
+2025-08-13 00:00:05.056 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 7ms
+2025-08-13 00:00:05.071 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 23.1386 ms
+2025-08-13 00:00:40.933 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 17ms
+2025-08-13 00:00:40.937 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 21.4560 ms
+2025-08-13 00:00:48.724 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 13ms
+2025-08-13 00:00:48.727 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 16.3430 ms
+2025-08-13 00:00:59.261 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:00:59.264 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:00:59.296 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 165ms
+2025-08-13 00:00:59.300 +05:30 [INF] HTTP GET /api/User responded 200 in 169.1064 ms
+2025-08-13 00:01:06.760 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=5  Responded with [200] in 8ms
+2025-08-13 00:01:06.764 +05:30 [INF] HTTP GET /api/User responded 200 in 12.2595 ms
+2025-08-13 00:01:29.772 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 00:01:29.774 +05:30 [INF] HTTP GET /api/User responded 200 in 11.8229 ms
+2025-08-13 00:01:38.792 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 10ms
+2025-08-13 00:01:38.796 +05:30 [INF] HTTP GET /api/User responded 200 in 13.9170 ms
+2025-08-13 00:01:48.300 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:01:48.303 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:01:48.346 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=10  Responded with [200] in 67ms
+2025-08-13 00:01:48.348 +05:30 [INF] HTTP GET /api/Order responded 200 in 70.0711 ms
+2025-08-13 00:01:51.625 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/User ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 00:01:51.627 +05:30 [INF] HTTP GET /api/User responded 200 in 12.2965 ms
+2025-08-13 00:01:52.997 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant ?PageNumber=1&PageSize=10  Responded with [200] in 9ms
+2025-08-13 00:01:53.000 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 12.4194 ms
+2025-08-13 00:01:54.989 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=10  Responded with [200] in 13ms
+2025-08-13 00:01:54.992 +05:30 [INF] HTTP GET /api/Order responded 200 in 15.9717 ms
+2025-08-13 00:02:06.257 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=5  Responded with [200] in 16ms
+2025-08-13 00:02:06.260 +05:30 [INF] HTTP GET /api/Order responded 200 in 19.2155 ms
+2025-08-13 00:02:12.381 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:02:12.383 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:02:12.394 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=2&PageSize=5  Responded with [200] in 17ms
+2025-08-13 00:02:12.396 +05:30 [INF] HTTP GET /api/Order responded 200 in 20.4307 ms
+2025-08-13 00:02:15.366 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=5  Responded with [200] in 6ms
+2025-08-13 00:02:15.370 +05:30 [INF] HTTP GET /api/Order responded 200 in 10.6124 ms
+2025-08-13 00:02:19.262 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=2&PageSize=5  Responded with [200] in 7ms
+2025-08-13 00:02:19.264 +05:30 [INF] HTTP GET /api/Order responded 200 in 9.6269 ms
+2025-08-13 00:02:22.007 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=5  Responded with [200] in 6ms
+2025-08-13 00:02:22.009 +05:30 [INF] HTTP GET /api/Order responded 200 in 9.0303 ms
+2025-08-13 00:02:34.433 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Order ?PageNumber=1&PageSize=10  Responded with [200] in 8ms
+2025-08-13 00:02:34.436 +05:30 [INF] HTTP GET /api/Order responded 200 in 10.8697 ms
+2025-08-13 00:03:06.121 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:03:06.123 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-08-13 00:03:06.177 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 72ms
+2025-08-13 00:03:06.180 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 76.4697 ms
+2025-08-13 00:03:08.019 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Restaurant   Responded with [200] in 10ms
+2025-08-13 00:03:08.022 +05:30 [INF] HTTP GET /api/Restaurant responded 200 in 13.1599 ms
+2025-08-13 00:03:09.291 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 15ms
+2025-08-13 00:03:09.294 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 18.5423 ms
+2025-08-13 00:04:58.409 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=5  Responded with [200] in 10ms
+2025-08-13 00:04:58.412 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 13.7306 ms
+2025-08-13 00:07:04.695 +05:30 [INF] Source:[::1] Request: GET https localhost:7173/api/Coupon ?PageNumber=1&PageSize=10  Responded with [200] in 11ms
+2025-08-13 00:07:04.699 +05:30 [INF] HTTP GET /api/Coupon responded 200 in 15.6984 ms
